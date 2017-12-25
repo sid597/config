@@ -1,3 +1,9 @@
+git config --global user.name
+git config --global user.email
+
+git clone " yyour repo
+
+
 git remote add origin 
 
 
