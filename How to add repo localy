@@ -1,0 +1,9 @@
+git remote add origin 
+
+
+######################### Adding file in git repo #####################################
+
+
+git add 
+git commit -m " say something about the file"
+git push origin master 
