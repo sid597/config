@@ -1,1 +1,7 @@
-# config files for vim and  i3
+# My config files for:
+i3
+vim
+zsh
+terminator
+vscode
+gtk
