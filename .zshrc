@@ -103,6 +103,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/opt/firefox/firefox:$PATH"
-alias wiki="cd Don-tReadListen;source venv/bin/activate;code .; exit"
-alias pycharm="sh /home/sid597/pycharm-community-2019.3.3/bin/pycharm.sh"
 alias gc="git commit"
