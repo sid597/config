@@ -8,11 +8,42 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'tpope/vim-sensible'
+" VIM enhancements
+Plug 'ciaranm/securemodelines'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'justinmk/vim-sneak'
+
+" GUI enhancements
 Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'andymass/vim-matchup'
+
+" Fuzzy finder
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Semantic language support
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntactic language support
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
+Plug 'rust-lang/rust.vim'
+Plug 'rhysd/vim-clang-format'
+"Plug 'fatih/vim-go'
+Plug 'dag/vim-fish'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+" gruvbox
+Plug 'morhetz/gruvbox'
+
+
+
+Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-buftabline'
-Plug 'airblade/vim-gitgutter'
+" Nerdtree
 Plug 'vim-scripts/The-NERD-tree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -23,6 +54,10 @@ Plug 'lepture/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 call plug#end()
+
+" Gruvbox colorscheme 
+
+autocmd vimenter * colorscheme gruvbox
 
 filetype plugin indent on
 syntax on
@@ -37,9 +72,20 @@ endif
 " always show the status bar
 set laststatus=2
 
-" enable 256 colors
+
+
+"" 24 bit color
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
-set t_ut=
+
+" color scheme
+syntax on
+filetype on
+filetype plugin indent on
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
 
 " turn on line numbering
 set number
@@ -68,6 +114,14 @@ nmap <Tab> >>
 imap <S-Tab> <Esc><<i
 nmap <S-tab> <<
 
+" No arrow keys --- force yourself to use the home row
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
 " mouse
 set mouse=a
 let g:is_mouse_enabled = 1
@@ -84,11 +138,6 @@ function ToggleMouse()
     endif
 endfunction
 
-" color scheme
-syntax on
-colorscheme onedark
-filetype on
-filetype plugin indent on
 
 " lightline
 set noshowmode
