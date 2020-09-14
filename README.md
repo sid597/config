@@ -5,3 +5,6 @@
 - terminator
 - vscode
 - gtk
+- fish
+- alacritty
+- i3 gaps
