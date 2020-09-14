@@ -1,12 +1,18 @@
 
 # startup
 
-exec_always --no-startup-id feh --bg-scale /home/sid597/wall/wal.png
+exec_always --no-startup-id feh --bg-scale /home/sid597/wall/6.jpeg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always compton -f
 
 # disable title bars
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 
+
+# Setup gaps
+gaps inner 5
+gaps outer 0
+smart_gaps on
+smart_borders on
 
 # Alt as mod key
 set $mod Mod1

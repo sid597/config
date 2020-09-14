@@ -10,6 +10,17 @@ alias vrc "vim .vimrc"
 alias off "systemctl poweroff"
 alias sus "systemctl suspend"
 alias rs "redshift -O 4500"
+alias wiki="cd bolowiki;source venv/bin/activate;code .; exit"
+alias pycharm="sh /home/sid597/pycharm-community-2019.3.3/bin/pycharm.sh"
+alias gc="git commit"
+alias ga="git add"
+
+# Path Export
+export PATH="$PATH:/usr/local/go/bin"
+export GOROOT="/usr/local/go-1.13"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:/home/sid597/flutter/bin"
+export PATH="/opt/firefox/firefox:$PATH"
 
 
 
@@ -24,23 +35,3 @@ setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
 setenv LESS_TERMCAP_ue \e'[0m'           # end underline
 setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
-
-#function fish_prompt
-#	set_color brblack
-#	echo -n "["(date "+%H:%M")"] "
-#	set_color blue
-#	echo -n (hostname)
-#	if [ $PWD != $HOME ]
-#		set_color brblack
-#		echo -n ':'
-#		set_color yellow
-#		echo -n (basename $PWD)
-#	end
-#	set_color green
-#	printf '%s ' (__fish_git_prompt)
-#	set_color red
-#	echo -n '| '
-#	set_color normal
-#end
-#
-#
