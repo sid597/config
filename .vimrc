@@ -55,6 +55,21 @@ Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 call plug#end()
 
+
+" Change leader key
+let mapleader = ' '
+
+
+" color scheme
+syntax on
+filetype on
+filetype plugin indent on
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italicize_strings = 0  
+let g:gruvbox_italicize_comments = 0  
+
+
 " Gruvbox colorscheme 
 
 autocmd vimenter * colorscheme gruvbox
@@ -73,19 +88,13 @@ endif
 set laststatus=2
 
 
-
 "" 24 bit color
+set term=screen-256color
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 
-" color scheme
-syntax on
-filetype on
-filetype plugin indent on
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
 
 " turn on line numbering
 set number
@@ -122,22 +131,22 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" mouse
+"" mouse
 set mouse=a
-let g:is_mouse_enabled = 1
-noremap <silent> <Leader>m :call ToggleMouse()<CR>
-function ToggleMouse()
-    if g:is_mouse_enabled == 1
-        echo "Mouse OFF"
-        set mouse=
-        let g:is_mouse_enabled = 0
-    else
-        echo "Mouse ON"
-        set mouse=a
-        let g:is_mouse_enabled = 1
-    endif
-endfunction
-
+"let g:is_mouse_enabled = 1
+"noremap <silent> <Leader>m :call ToggleMouse()<CR>
+"function ToggleMouse()
+"    if g:is_mouse_enabled == 1
+"        echo "Mouse OFF"
+"        set mouse=
+"        let g:is_mouse_enabled = 0
+"    else
+"        echo "Mouse ON"
+"        set mouse=a
+"        let g:is_mouse_enabled = 1
+"    endif
+"endfunction
+"
 
 " lightline
 set noshowmode
@@ -179,16 +188,35 @@ function ToggleWrap()
     endif
 endfunction
 
+" remap hjkl 
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
+
 " move through split windows
-nmap <leader><Up> :wincmd k<CR>
-nmap <leader><Down> :wincmd j<CR>
-nmap <leader><Left> :wincmd h<CR>
-nmap <leader><Right> :wincmd l<CR>
+nmap <leader>l :wincmd k<CR>
+nmap <leader>k :wincmd j<CR>
+nmap <leader>j :wincmd h<CR>
+nmap <leader>; :wincmd l<CR>
 
 " move through buffers
 nmap <leader>[ :bp!<CR>
 nmap <leader>] :bn!<CR>
 nmap <leader>x :bd<CR>
+
+" move through tabs 
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 " restore place in file from previous session
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
