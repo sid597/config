@@ -1,18 +1,11 @@
 " plugins
-let need_to_install_plugins = 0
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    "autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    let need_to_install_plugins = 1
-endif
 
 call plug#begin()
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-sneak'
-
+Plug 'jiangmiao/auto-pairs'
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -22,13 +15,6 @@ Plug 'andymass/vim-matchup'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Semantic language support
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Syntactic language support
-Plug 'cespare/vim-toml'
-Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
 "Plug 'fatih/vim-go'
@@ -38,8 +24,6 @@ Plug 'plasticboy/vim-markdown'
 " gruvbox
 Plug 'morhetz/gruvbox'
 
-
-
 Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-buftabline'
@@ -47,14 +31,11 @@ Plug 'ap/vim-buftabline'
 Plug 'vim-scripts/The-NERD-tree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'lepture/vim-jinja'
-Plug 'pangloss/vim-javascript'
-Plug 'davidhalter/jedi-vim'
 call plug#end()
 
+set hlsearch
 
 " Change leader key
 let mapleader = ' '
@@ -77,12 +58,6 @@ autocmd vimenter * colorscheme gruvbox
 filetype plugin indent on
 syntax on
 
-if need_to_install_plugins == 1
-    echo "Installing plugins..."
-    silent! PlugInstall
-    echo "Done!"
-    q
-endif
 
 " always show the status bar
 set laststatus=2
@@ -98,6 +73,7 @@ set t_Co=256
 
 " turn on line numbering
 set number
+set relativenumber
 
 " sane text files
 set fileformat=unix
